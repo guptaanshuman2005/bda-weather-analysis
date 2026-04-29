@@ -47,4 +47,10 @@ plt.legend()
 os.makedirs(os.path.dirname(OUTPUT_IMAGE), exist_ok=True)
 plt.savefig(OUTPUT_IMAGE)
 print(f"Saved temperature plot to {OUTPUT_IMAGE}")
+
+print("\n--- Temperature Statistics ---")
+for y, avg, min_t, max_t in zip(years, avg_temps, min_temps, max_temps):
+    print(f"Year {y}: Avg = {avg:.1f}°C, Min = {min_t:.1f}°C, Max = {max_t:.1f}°C")
+print("------------------------------\n")
+
 plt.show()

@@ -16,9 +16,7 @@ spark = SparkSession.builder \
     .master("local[*]") \
     .getOrCreate()
 
-with open(INPUT_PATH, "r", encoding="utf-8") as f:
-    lines = f.readlines()
-rdd = spark.sparkContext.parallelize(lines)
+rdd = spark.sparkContext.textFile(INPUT_PATH)
 
 
 def parse(line):
